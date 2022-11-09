@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Danilo de Melo Vasconcellos - 202010702
+	 Yan Gianini Oliveira - 202011128 -->
+<html lang='en'>
+<body>
+	<Header></header>
+	<p>CALCULO IMC</p>
+	<label for="id_peso">Peso: </label>
+	<input type="number" id="id_peso"/>
+	<label for="id_peso">altura: </label>
+	<input type="number" id="id_altura"/>
+	<label for="id_peso">sexo: </label>
+	<input type="text" id="id_sexo"/>
+	<br>
+	<button onclick="calculaIMC()">Send</button>
+	<p id="resp"></p>
+</body>
+<script>
+	function calculaIMC(){
+		let peso = document.getElementById('id_peso').value;
+		let altura = document.getElementById('id_altura').value;
+		let sexo = document.getElementById('id_sexo').value;
+		let resp = document.getElementById('resp');
+		let imc = peso/(altura**2);
+		console.log(imc);
+		
+		if (sexo=='m'){
+			if (imc < 20.7){
+				resp.innerHTML = 'abaixo do peso';
+			}else if(imc <= 26.4){
+				resp.innerHTML = 'no peso normal';
+			}else if(imc<=27.8){
+				resp.innerHTML = 'marginalmente acima do peso';
+			}else if(imc<=31.1){
+				resp.innerHTML = 'acima do peso ideal';
+			}else if(imc>31.1){
+				resp.innerHTML = 'obeso';
+			}
+		}else if(sexo=='f'){
+			if (imc < 19.1){
+				resp.innerHTML = 'abaixo do peso';
+			}else if(imc <= 25.8){
+				resp.innerHTML = 'no peso normal';
+			}else if(imc<=27.3){
+				resp.innerHTML = 'marginalmente acima do peso';
+			}else if(imc<=32.3){
+				resp.innerHTML = 'acima do peso ideal';
+			}else if(imc>32.3){
+				resp.innerHTML = 'obeso';
+			}
+		}else{
+			resp.innerHTML('');
+		}
+	}
+</script>
+</html>
